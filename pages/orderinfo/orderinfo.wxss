@@ -1,0 +1,34 @@
+page { width: 100%; background-color: #f9f9f9; color : #333; padding-bottom : 100rpx; font-size : 24rpx; }
+
+.status { height : 270rpx; background-color: rgb( 235, 94, 24 ); color : #fff; display: flex; padding : 0 30rpx; flex-direction : column; justify-content : center; }
+.status .info { font-size : 48rpx; }
+.status .sub-info { margin-top : 40rpx; }
+
+.hotel { margin-top : 30rpx; border-top : solid 1px #f0f0f0; border-bottom : solid 1px #f0f0f0; background-color: #fff; }
+.hotel .cell { padding : 30rpx 0; border-top : solid 1px #f0f0f0; }
+.hotel .cell.info { padding-bottom : 0; }
+.hotel .cell:first-child { border-top : 0; }
+.hotel .cell .name { font-size :28rpx; padding : 0 30rpx; }
+.hotel .cell .address { color : #777; margin-top : 20rpx; padding : 0 30rpx; }
+.hotel .cell .list { padding : 30rpx 0; border-bottom : solid 1px #f0f0f0; }
+.hotel .cell .list .row { display: flex; margin-top : 30rpx; padding : 0 30rpx; }
+.hotel .cell .list .row:first-child { margin-top : 0; }
+.hotel .cell .list .row .key { width : 120rpx; color : #999; }
+.hotel .cell .list .row .value { width : 570rpx; }
+.hotel .cell .btns { display: flex; }
+.hotel .cell .btns .btn { font-size : 28rpx; display: flex; flex-grow : 1; border-right : solid 1px #f0f0f0; justify-content : center; padding : 30rpx 0; align-items : center; }
+.hotel .cell .btns .btn image { width: 40rpx; height : 40rpx; margin-right : 10rpx; }
+
+.order { margin-top : 30rpx; background-color: #fff; padding : 0 30rpx; border-top : solid 1px #f0f0f0; border-bottom: solid 1px #f0f0f0; }
+.order .row { padding-top : 30rpx; display: flex; align-items : cneter; justify-content : space-between; }
+.order .row.line { border-bottom : solid 1px #f0f0f0; padding-bottom : 30rpx; }
+.order .row:last-child { padding-bottom : 30rpx; }
+.order .row .key { color : #777; }
+
+.price { display: inline-block; color : rgb( 235, 94, 24 ); }
+
+.tips { padding : 30rpx; color : #777; }
+
+.toolbar { height : 100rpx; width : 100%; position: fixed; bottom : 0; left : 0; background-color: #fff; display: flex; border-top : solid 1px #f0f0f0; }
+.toolbar .btn { flex-grow : 1; height: 100%; display: flex; justify-content : center; align-items : center; font-size : 32rpx; color : #333; }
+.toolbar .btn.primary { color : #fff; background-color: rgb( 235, 94, 24 ); }

@@ -1,0 +1,57 @@
+
+<view class="city-wrap">
+    <scroll-view 
+     class="scroll-wrap"
+     scroll-into-view="{{scorllId}}"
+     scroll-y="true">
+        <view class="city-container hot">
+            <view class="city-title">
+                 热门城市
+            </view>
+            <view class="city-list">
+                <block wx:for="{{pageData.hotCity}}" 
+                wx:key="key"
+                wx:for-item="item" 
+                wx:for-index="key">
+                    <view class="city-item" data-citycode="{{item.citycode}}" data-cityname="{{item.name}}" catchtap="selectCity">
+                        {{item.name}}
+                    </view>
+                </block>
+            </view>
+        </view>
+
+        <view class="city-container all">
+            <view class="city-title">
+                 所有城市
+            </view>
+            <view class="city-list">
+                <block wx:for="{{pageData.cityList}}"
+                  wx:key="index"
+                  wx:for-item="item"
+                  wx:for-index="index">
+                    <view class="city-item" data-id="{{item.letter}}" bindtap="scrollIntoCity">
+                        {{item.letter}}
+                    </view>
+                </block>
+            </view>
+        </view>
+
+        <view class="city-list-wrap">
+            <block wx:for="{{pageData.cityList}}"
+                    wx:key="index"
+                    wx:for-item="item"
+                    wx:for-index="index">
+                <view class="city-list" id="{{item.letter}}">
+                    <view class="city-item" wx:if="{{item.city.length}}">
+                        {{item.letter}}
+                    </view>
+                    <block wx:for="{{item.city}}" wx:key="index">
+                        <view class="city-item" data-citycode="{{item.citycode}}" data-cityname="{{item.name}}" catchtap="selectCity">
+                            {{item.name}}
+                        </view>
+                    </block>
+                </view>
+            </block>    
+        </view>
+    </scroll-view>
+</view>

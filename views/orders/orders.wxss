@@ -1,0 +1,31 @@
+.orders{
+	background-color: #f9f9f9;
+	color : #333;
+	min-height: 100%;
+}
+
+.orders .head { border-bottom: solid 1px #f0f0f0; background-color: #fff; position: fixed; top : 0; left : 0; width : 100%; display: flex; align-items: center; justify-content: space-around; }
+.orders .head .box { height : 70rpx; line-height: 80rpx; padding : 0 20rpx; font-size : 28rpx; }
+.orders  .head .box.current { color : #ea622e; border-bottom : solid 6rpx #ea622e; }
+
+
+.list { margin-top: 100rpx; height : auto; display: block; background-color: #f0f0f0; }
+.list .order { margin-bottom : 30rpx; border : solid 1px #f0f0f0; background-color: #fff; }
+.list .order .title { padding : 30rpx; display: flex; font-size : 28rpx; justify-content : space-between; }
+.list .order .title .name { display: flex; align-items : center; }
+.list .order .title .name .img { width  : 30rpx; height : 30rpx; border : solid 1px #f0f0f0; border-radius : 4rpx; margin-right : 10rpx; }
+.list .order .title .status { color : rgb( 235, 94, 24 ); }
+.list .order .info { padding : 30rpx; padding-top : 0; font-size : 22rpx; color : #777; }
+.list .order .info .row { display: flex; margin-top : 20rpx; }
+.list .order .info .row:first-child { margin-top : 0; }
+.list .order .info .row .key { width : 120rpx; text-align:justify; }
+.list .order .info .row .value { width : 670rpx; }
+
+.list .order .order-act { display: flex; padding : 16rpx 30rpx; border-top : solid 1px #f0f0f0; font-size : 28rpx; justify-content : space-between; align-items : center; }
+.list .order .order-act .btn-area { display: flex; }
+.list .order .order-act .sub-btn { margin-right: 20rpx; font-size : 24rpx; border : solid 1px #ccc; border-radius: 8rpx; padding : 16rpx 36rpx; }
+.list .order .order-act .sub-btn:last-child { margin-right : 0; }
+.list .order .order-act .sub-btn.primary { color : rgb( 235, 94, 24 ); border-color : rgb( 235, 94, 24 ); }
+
+.orders.login { height : 100%; width : 100%; background-color: #fff; display: flex; justify-content : center; align-items : center; }
+.orders.login .button { color : #fff; background-color: rgb( 235, 94, 24 ); width : 500rpx; height : 100rpx; line-height: 100rpx; text-align: center; border-radius: 8rpx; }

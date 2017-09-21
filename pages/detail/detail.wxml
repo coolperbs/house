@@ -1,0 +1,42 @@
+<view class="head">
+    <view class="image-list" catchtap="showImage">
+        <image wx:for="{{[0,1,2]}}" wx:key="index" src="{{ pageData.store.detailImage[item] }}"></image>
+        <view class="num">{{ pageData.store.detailImage.length }}张</view>
+    </view>
+    <view class="info">
+        <navigator url="../info/info?storeId={{pageData.store.id}}" class="row large">
+            <view class="text ellipsis-1">{{pageData.store.name}}</view>
+            <view class="more">详情<image class="arrow" src="../../asset/arrow-right.png"></image></view>
+        </navigator>
+        <view wx:if="{{ pageData.store.lng && pageData.store.lat }}" class="row" catchtap="showMap" data-lng="{{pageData.store.lng}}" data-lat="{{pageData.store.lat}}" data-name="{{pageData.store.name}}" data-address="{{ pageData.store.address }}">
+            <view class="text ellipsis-1">{{pageData.store.address}}</view>
+            <view class="more">地图<image class="arrow" src="../../asset/arrow-right.png"></image></view>
+        </view>
+        <view class="row rank">
+            <view class="text ellipsis-1">{{ pageData.store.subname }}</view>
+        </view>
+    </view>
+</view>
+
+<view class="cont">
+    <view class="date">
+        <navigator url="../date/date" class="row large day">
+            <view class="text ellipsis-1"><image class="calendar" src="../../asset/calendar.png"></image>{{ datetime[0].month }}月{{ datetime[0].day }}日 - {{ datetime[1].month }}月{{ datetime[1].day }}日</view>
+            <view class="more">住{{allDay}}晚<image class="arrow" src="../../asset/arrow-right.png"></image></view>
+        </navigator>
+    </view>
+    <view class="list">
+        <navigator wx:for="{{pageData.ware}}" wx:key="index" class="item" url="../checkout/checkout?storeId={{pageData.store.id}}&wareSkuId={{item.wareSkuId}}">
+            <image class="pic" src="{{item.mainImage}}"></image>
+            <view class="info">
+                <view class="main ellipsis-1">{{item.title}}</view>
+                <view class="sub ellipsis-1">大床2米 内窗</view>
+            </view>
+            <view class="price">
+                <view class="main ellipsis-1"><view class="s">¥</view>{{ item.price / 100 }}<view class="s">起</view></view>
+                <view class="sub ellipsis-1">门市价<view class="old">¥{{ item.originPrice / 100 }}</view></view>
+            </view>
+        </navigator>
+    </view>
+</view>
+

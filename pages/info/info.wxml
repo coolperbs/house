@@ -1,0 +1,53 @@
+<view class="mod">
+    <view class="title">酒店信息</view>
+    <view class="cont list">
+        <view class="cell">
+            <view class="t ellipsis-1">酒店名称: </view>
+            <view class="i ellipsis-1">{{ pageData.store.name }}</view>
+        </view>
+        <view class="cell">
+            <view class="t ellipsis-1">酒店地址: </view>
+            <view class="i ellipsis-1">{{ pageData.store.address }}</view>
+        </view>
+        <view class="cell">
+            <view class="t ellipsis-1">联系电话: </view>
+            <view class="i ellipsis-1">{{ pageData.store.telphone }}</view>
+        </view>
+        <!--<view class="cell">
+            <view class="t ellipsis-1">办理时间: </view>
+            <view class="i ellipsis-1">我的酒店我的酒店我的酒店我的酒店我的酒店我的酒店我的酒店我的酒店我的酒店我的酒店我的酒店我的酒店</view>
+        </view>-->
+    </view>
+</view>
+
+<view class="mod">
+    <view class="title">酒店服务</view>
+    <view class="cont list icon">
+        <view class="cell" wx:for="{{ pageData.store.services }}">
+            <view class="t">
+                <image mode="widthFix" src="{{ services[item].image }}"></image>
+            </view>
+            <view class="i">
+                {{services[item].title}}
+            </view>
+        </view>
+    </view>
+</view>
+
+<view class="mod" wx:if="{{ pageData.store.policyList.length > 0 }}">
+    <view class="title">酒店政策</view>
+    <view class="cont list">
+        <view class="cell" wx:key="index" wx:for="{{ pageData.store.policyList }}">
+            {{item}}
+        </view>
+    </view>
+</view>
+
+<view class="mod">
+    <view class="title">酒店简介</view>
+    <view class="cont list">
+        <view class="cell">
+            {{ pageData.store.introduce }}
+        </view>
+    </view>
+</view>

@@ -1,0 +1,28 @@
+page { width: 100%; background-color: #f9f9f9; }
+.head { background-color: #fff; }
+.head .image-list { height : 250rpx; position: relative; overflow: hidden; display: flex; justify-content: space-between; align-items: flex-start; }
+.head .image-list image { display: block; width: 248rpx; height: 248rpx; background-color: #f0f0f0; }
+.head .image-list .num { display: flex; align-items: center; position: absolute; right : 0; top : 0; background-color: rgba( 0, 0, 0, 0.2 ); padding : 10rpx 20rpx; color : #fff; }
+.head .row.rank { color : #ea622e; }
+
+.row { padding : 40rpx 30rpx; font-size : 24rpx; border-bottom : solid 1px #f0f0f0; display: flex; align-items: center; justify-content: space-between; }
+.row .text { width : 560rpx; align-items: center; }
+.row .more { font-size : 28rpx; color : #999; display: flex; align-items: center; }
+.row .arrow { width: 32rpx; height: 32rpx; margin-left: 10rpx; }
+.row.large { font-size : 32rpx; }
+
+
+.cont { margin-top : 30rpx; background-color: #fff; }
+.cont .date .day .calendar { width : 32rpx; height: 32rpx; margin-right : 40rpx; }
+.cont .date .row .text { display: flex; }
+.cont .list .item { padding : 20rpx 30rpx; height: 140rpx; display: flex; justify-content: space-between; }
+.cont .list .item .pic { height: 140rpx; width : 140rpx; border : solid 1px #f0f0f0; }
+.cont .list .item .info,
+.cont .list .item .price { height : 140rpx; display: flex; flex-direction: column; justify-content: space-around; }
+.cont .list .item .info { margin-left : 20rpx; width : 360rpx; }
+.cont .list .item .info .main { font-size : 32rpx; }
+.cont .list .item .info .sub { font-size : 24rpx; color : #999; }
+.cont .list .item .price .main{ margin-left : 20rpx; font-size : 36rpx; color : #ea622e; display: flex; justify-content: flex-end; align-items: flex-end; }
+.cont .list .item .price .main .s { font-size : 24rpx; margin : 0 8rpx; }
+.cont .list .item .price .sub { font-size: 24rpx; color : #999; display: flex; justify-content: flex-end; align-items: flex-end; }
+.cont .list .item .price .sub .old { text-decoration : line-through; margin-left: 10rpx; }

@@ -1,0 +1,44 @@
+{
+  "pages":[
+    "pages/index/index",  
+    "pages/date/date",
+    "pages/list/list",
+    "pages/detail/detail",
+    "pages/info/info",
+    "pages/checkout/checkout",
+    "pages/orderinfo/orderinfo",
+    "pages/city/city",
+    "pages/login/login",
+    "pages/map/map"
+  ],
+
+  "window":{
+    "navigationBarBackgroundColor": "#fff",
+    "navigationBarTitleText" : " ",
+    "navigationBarTextStyle":"black",
+    "enablePullDownRefresh" : false,
+    "onReachBottomDistance" : 100
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

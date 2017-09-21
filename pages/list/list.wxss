@@ -1,0 +1,32 @@
+page { width: 100%;}
+.head { z-index : 10; background-color: #fff; position: fixed; top : 0; left: 0; width : 100%; display: flex; align-items: center; justify-content: space-around; border-bottom : solid 1px #f0f0f0; }
+.head .box { height : 100rpx; color : #555; font-size : 24rpx; width : 210rpx; overflow: hidden; display: flex; justify-content: center; align-items: center; }
+.head .box .arrow-down { margin-left : 10rpx; border-top-color: #555; }
+
+.search.shop-list { margin-top:  100rpx; z-index: 1; }
+
+
+.area-selector { height : 100%; }
+.area-selector .menu { position: fixed; border-right: solid 1px #f0f0f0; top : 0; left : 0; width : 200rpx; height : 100%; background-color: #f9f9f9; display: flex; flex-direction: column; }
+.area-selector .menu .item { font-size : 24rpx; height : 100rpx; line-height: 100rpx; text-align: center; padding : 0 10rpx; border-bottom: solid 1px #f0f0f0; }
+.area-selector .menu .item:last-child { border-bottom: none; }
+.area-selector .menu .item.current { color : #ea622e; background-color: #fff; border-right: #fff; }
+
+.area-selector .item-list { position: fixed; top : 0; left : 200rpx; width : 500rpx; padding-left : 30rpx; height : 100%; }
+.area-selector .item-list .item { height : 100rpx; line-height: 100rpx; border-bottom: solid 1px #f0f0f0; }
+.area-selector .item-list .item:last-child { margin-bottom: none; }
+.area-selector .item-list .item.current { color : #ea622e;  }
+
+
+
+/* 可以归纳到系统 */
+.shop-list {}
+.shop-list .shop { height : 200rpx; border-bottom: solid 1px #f0f0f0; display: flex; }
+.shop-list .shop .img { height : 200rpx; width: 200rpx; background-color: #fafafa; }
+.shop-list .shop .info { width : 500rpx; padding : 20rpx; padding-right: 30rpx; display: flex; flex-direction:column; justify-content: space-around; color : #333; }
+.shop-list .shop .info .title { font-size: 32rpx; }
+.shop-list .shop .info .sub-info { font-size: 20rpx; color : #aaa; }
+.shop-list .shop .info .main-info { display: flex; align-items: center; }
+.shop-list .shop .info .main-info .area { font-size: 24rpx; color : #aaa; width : 360rpx; }
+.shop-list .shop .info .main-info .price { text-align: right; width : 140rpx; font-size : 36rpx; color : #ea622e; }
+.shop-list .shop .info .main-info .price .sub { font-size : 24rpx; margin : 0 6rpx; display: inline-block; }

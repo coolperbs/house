@@ -1,0 +1,13 @@
+.home { height: 100%; display: flex; justify-content: center; align-items: center; width : 100%; }
+
+.home .background { opacity: 0.9; z-index : 1; width : 100%; height : 100%; position: absolute; left : 0; top : 0; background-color: #ccc; }
+
+.home .box { padding : 15rpx; overflow: hidden; background-color: #fff; border-radius: 8rpx; width: 660rpx; margin : 0 auto; z-index: 2; position: relative; box-shadow: 0 16rpx 20rpx rgba( 0, 0, 0, 0.1 ); }
+.home .box .loc { padding : 20rpx 0; display: flex; justify-content: center; font-size : 32rpx; align-items: center; }
+.home .box .loc image { width: 52rpx; height: 52rpx; margin-right : 20rpx; }
+.home .box .cont { padding : 40rpx 0; border : solid 1px #f0f0f0; border-width: 1px 0; }
+.home .box .cont .info { display: flex; justify-content: space-around; align-items: center; padding : 20rpx 0; color : #bbb; font-size : 24rpx; }
+.home .box .cont .date { height: 60rpx; display: flex; }
+.home .box .cont .date .day { color : #ea622e; font-size : 32rpx; flex-grow: 1; text-align: center; line-height: 60rpx; }
+.home .box .cont .date .day:first-child{ border-right: solid 1px #f0f0f0; }
+.home .sure .btn { background-color: #e85e29; height : 80rpx; line-height: 80rpx; color : #fff; font-size : 32rpx; text-align: center; } 

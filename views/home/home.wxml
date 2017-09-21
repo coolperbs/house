@@ -1,0 +1,36 @@
+<template name="home">
+
+
+	<view class="home">
+		<view class="box">
+			<navigator url="../city/city" class="loc">
+				<image src="../../asset/loc.png"></image>
+				{{ city.name || '请选择城市' }}
+			</navigator>
+
+			<view class="cont">
+				<navigator url="../date/date">
+					<view class="info">
+						<view>入住</view>
+						<view>共{{allDay}}晚</view>
+						<view>退房</view>
+					</view>
+					<view class="date">
+						<view class="day start">{{datetime[0].month}}月{{datetime[0].day}}日 周{{datetime[0].week}}</view>
+						<view class="day end">{{datetime[1].month}}月{{datetime[1].day}}日 周{{datetime[1].week}}</view>
+					</view>
+				</navigator>
+			</view>
+
+			<view class="sure">
+				<navigator url="../list/list">
+					<view class="btn">订酒店</view>
+				</navigator>
+			</view>
+		</view>
+		<image src="../../asset/back.jpeg" class="background"></image>
+	</view>
+
+
+</template>
+

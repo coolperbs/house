@@ -1,0 +1,86 @@
+<view class="status">
+    <view class="info">{{ pageData.order.orderStatusStr }}</view>
+    <!--<view class="sub-info">订单已取消</view>-->
+</view>
+
+<view class="hotel">
+    <view class="cell">
+        <view class="name">{{pageData.store.name}}</view>
+        <view class="address">{{ pageData.store.address }}</view>
+    </view>
+
+    <view class="cell info">
+        <view class="name">
+            {{ pageData.order.wareSkuTitle }} 1间 共{{ pageData.order.wareSkuCount }}晚
+        </view>
+        <view class="list">
+            <view class="row">
+                <view class="key">入驻时间:</view>
+                <view class="value ellipsis-1">{{ pageData.order.startDateObj.year }}-{{ pageData.order.startDateObj.month }}-{{ pageData.order.startDateObj.day }} 至 {{ pageData.order.endDateObj.year }}-{{ pageData.order.endDateObj.month }}-{{ pageData.order.endDateObj.day }}</view>
+            </view>
+<!--             <view class="row">
+                <view class="key">保留时间:</view>
+                <view class="value ellipsis-1">2017-09-01 21:31:47</view>
+            </view> -->
+            <view class="row">
+                <view class="key">入 驻 人:</view>
+                <view class="value ellipsis-1">{{ pageData.order.userName }}</view>
+            </view>
+            <view class="row">
+                <view class="key">联系电话:</view>
+                <view class="value ellipsis-1">{{ pageData.order.userPhone }}</view>
+            </view>
+        </view>
+        <view class="btns">
+            <view class="btn" catchtap="phone"  data-phone="{{ pageData.store.telphone }}">
+                <image src="../../asset/phone.png"></image>
+                联系酒店
+            </view>
+            <view class="btn" catchtap="phone"  data-phone="{{ pageData.store.telphone }}">
+                <image src="../../asset/message.png"></image>
+                联系客服
+            </view>
+            <view data-lng="{{pageData.store.lng}}" data-lat="{{pageData.store.lat}}" data-name="{{pageData.store.name}}" data-address="{{ pageData.store.address }}" catchtap="showMap" class="btn">
+                <image src="../../asset/map.png"></image>
+                查看地图
+            </view>
+        </view>
+    </view>
+</view>
+
+<view class="order">
+    <view class="row line">
+        <view class="key">支付方式:</view>
+        <view class="value">{{ pageData.order.paymentType == 1 ? '到店支付' : '在线支付' }}</view>
+    </view>
+     <view class="row">
+        <view class="key">订单号:</view>
+        <view class="value">{{ pageData.order.orderId }}</view>
+    </view>
+     <view class="row">
+        <view class="key">下单时间:</view>
+        <view class="value">{{ pageData.order.startDateObj.year }}-{{ pageData.order.startDateObj.month }}-{{ pageData.order.startDateObj.day }}</view>
+    </view>
+    <view class="row">
+        <view class="key">订单总价:</view>
+        <view class="value"><view class="price">¥ {{ pageData.order.totalPrice / 100 }}</view></view>
+    </view>
+    <!--<view class="row line">
+        <view class="key">优惠:</view>
+        <view class="value"><view class="price">-¥0</view></view>
+    </view> -->
+    <view class="row">
+        <view class="key"></view>
+        <view class="value">实付款<view class="price">¥ {{ pageData.order.totalPrice / 100 }}</view></view>
+    </view>
+</view>
+
+<view class="tips">
+    温馨提示：{{pageData.store.policy}}
+</view>
+
+<view class="toolbar">
+    <view class="btn" wx:if="{{ pageData.order.orderStatus == 8 }}" catchtap="cancel">取消订单</view>
+    <view class="btn primary" wx:if="{{ pageData.order.orderStatus == 8 }}" catchtap="pay">立即支付</view>
+    <view class="btn"  data-phone="{{ pageData.store.telphone }}" wx:if="{{ pageData.order.orderStatus != 8 }}" catchtap="phone">申请售后</view>
+</view>

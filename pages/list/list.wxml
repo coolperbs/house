@@ -1,0 +1,42 @@
+<view class="head">
+    <navigator url="../date/date" class="box">
+        {{datetime[0].month}}月{{datetime[0].day}}日 共{{allDay}}晚
+        <view class="icon arrow-down"></view>
+    </navigator>
+    <navigator url="../city/city" class="box">
+        {{ city.name }}
+        <view class="icon arrow-down"></view>
+    </navigator>
+    <view class="box ellipsis-1" catchtap="selectarea">
+        <view class="ellipsis-1">{{ area.length == 2 ? pageData.cityCatMap[area[0]][area[1]].name : '选择区域'}}</view>
+        <view class="icon arrow-down"></view>
+    </view>
+</view>
+
+<view class="area-selector" scroll-y="{{true}}" wx:if="{{ showArea }}">
+    <scroll-view class="menu" scroll-y="{{true}}">
+        <view class="item"></view>
+        <view class="item ellipsis-1 {{ item.key == ( selectTab || area[0] ) ? 'current' : '' }}" data-area="{{item.key}}" wx:for="{{ newCityCatMap }}" wx:key="index" catchtap="changeTab">{{item.name}}</view>
+    </scroll-view>
+    <scroll-view class="item-list" scroll-y="{{true}}">
+        <view class="item ellipsis-1"></view>
+        <view class="item ellipsis-1 {{ item.id == pageData.cityCatMap[area[0]][area[1]].id ? 'current' : ''}}" wx:key="index" data-subarea="{{index}}" catchtap="changeArea" wx:for="{{ pageData.cityCatMap[selectTab || area[0]] }}">{{item.name}}</view>
+    </scroll-view>
+</view>
+
+<view class="search shop-list" wx:if="{{ !showArea }}">
+    <view class="shop" wx:for="{{stores}}" wx:key="index">
+        <navigator url="../detail/detail?storeId={{item.id}}">
+            <image class="img" src="{{item.logo}}"></image>
+        </navigator>
+        <navigator url="../detail/detail?storeId={{item.id}}" class="info">
+            <view class="title ellipsis-1">{{item.name}}</view>
+            <view class="sub-info ellipsis-1">{{item.address}}</view>
+            <!--<view class="sub-info ellipsis-1">4.7分/804条评论 | 经济型</view>-->
+            <view class="main-info">
+               <view class="area ellipsis-1">{{item.subname}}</view>
+                <view class="price"><view class="sub">¥</view>{{ item.minPrice / 100}}<view class="sub">起</view></view>
+            </view>
+        </navigator>
+    </view>
+</view>

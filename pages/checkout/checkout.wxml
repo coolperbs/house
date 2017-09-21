@@ -1,0 +1,77 @@
+<view class="hotel">
+    <view class="name ellipsis-1">{{ store.name }}</view>
+    <view class="sub-info">
+        <view>{{ datetime[0].year }}-{{ datetime[0].month }}-{{ datetime[0].day }} 入住 | {{ datetime[1].year }}-{{ datetime[1].month }}-{{ datetime[1].day }} 离店</view>
+        <view>{{ ware.title }} | 共 {{ allDay }}晚</view>
+    </view>
+</view>
+
+<view class="form">
+    <view class="row">
+        <view class="key ellipsis-1">
+            房间数量
+        </view>
+        <view class="value disable ellipsis-1">
+            1间
+        </view>
+    </view>
+    <view class="row">
+        <view class="key ellipsis-1">
+            入 住 人
+        </view>
+        <view class="value ellipsis-1">
+            <input bindinput="savename" placeholder="填写姓名" value="{{name}}"/>
+        </view>
+    </view>
+
+    <view class="row">
+        <view class="key ellipsis-1">
+            联系方式
+        </view>
+        <view class="value ellipsis-1">
+            <input bindinput="savephone" maxlength="11" placeholder="电话" type="number" value="{{phone}}"/>
+        </view>
+    </view>
+
+    <view class="row">
+        <view class="key ellipsis-1">
+            支付方式 
+        </view>
+        <picker class="value ellipsis-1" value="{{1}}" mode="selector" bindchange="changeType" range="{{paytype}}" >
+            {{ type }}
+        </picker>
+    </view>
+
+    <!--<view class="row">
+        <view class="key ellipsis-1">
+            保留时间
+        </view>
+        <view class="value disable ellipsis-1">
+            xx
+        </view>
+    </view> -->
+
+</view>
+
+<view class="form">
+    <view class="row">
+        <view class="key ellipsis-1">
+            发票
+        </view>
+        <view class="value ellipsis-1">
+            如有需要请向前台索取
+        </view>
+    </view>
+</view>
+
+<view class="info">
+    <view class="row">退订规则：可免费取消订单 </view>
+    <view class="row">温馨提示：阿道夫撒啥的地方按时发送的飞洒地方撒发方 </view>
+</view>
+
+<view class="toolbar">
+    <view class="price">
+        <view class="s">¥</view>{{ ( ware.price * allDay ) / 100 }}<view class="s"></view>
+    </view>
+    <view class="btn" catchtap="submit">提交订单</view>
+</view>

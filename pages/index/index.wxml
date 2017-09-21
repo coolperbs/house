@@ -1,0 +1,36 @@
+<import src="../../views/home/home.wxml"/>
+<import src="../../views/orders/orders.wxml"/>
+
+
+<!--<view class="content">-->
+	<template wx:if="{{currentView}}" is="{{currentView}}" data="{{ ...viewData }}"></template>
+<!--</view>-->
+
+
+<view class="tips" wx:if="{{tips.show}}">
+	<view class="pop">
+		<view class="title">{{ userInfo.user.sex == 2 ? 'Miss' : 'Mr' }} {{userInfo.user.nickName}}，这单商品您还满意吗？</view>
+		<view class="content comment-item">
+			<view class="pics img-floor">
+				<image class="box l-1" src="{{tips.orderInfo.wares[0].wareImgUrl}}"></image>
+				<view class="box l-2"></view>
+				<view class="box l-3"></view>
+			</view>
+			<view class="info">
+				<view class="title">{{tips.orderInfo.wares[0].wareName}}{{ tips.orderInfo.wares.length > 1 ? '等' + tips.orderInfo.wares.length + '件商品' : '' }}</view>
+				<view class="price">共 ¥{{ tips.orderInfo.payPriceStr }}</view>
+			</view>
+		</view>
+		<view class="act">
+			<view class="btn" catchtap="jump" data-url="../comment/comment?orderId={{tips.orderInfo.id}}">评价抽免单</view>
+		</view>
+		<view class="close" catchtap="closeTips">x</view>
+	</view>
+</view>
+
+<view class="base toolbar">
+	<view wx:for="{{tab.list}}" data-view="{{item.view}}" wx:key="index" data-index="{{index}}" bindtap="changeTab" class="tab">
+		<image src="../../asset/{{item.className}}.png" mode="widthFix" class="icon bar {{ item.view == currentView ? 'current' : ''}}"></image>
+	</view>
+	<view class="line" style="left : {{ tab.currentTab * 375 + 189 - 40 }}rpx"></view>
+</view>
