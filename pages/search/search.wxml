@@ -1,0 +1,22 @@
+<import src="../../widgets/search/search.wxml"/>
+<import src="../../widgets/list/list.wxml"/>
+<view class="page-search">
+	<view class="search-field">
+		<view class="input-search-field">
+			<template is="tpl-inputSearchCommon"></template>
+		</view>
+		<view class="select-search-field">
+			<template is="tpl-selectSearch" data="{{...selectSearchData}}"></template>
+		</view>
+	</view>
+	<view>
+		<template is="tpl-pagelist" data="{{...pageListData}}"></template>
+	</view>
+</view>
+
+
+
+
+
+
+

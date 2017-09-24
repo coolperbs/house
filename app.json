@@ -1,21 +1,16 @@
 {
   "pages":[
-    "pages/index/index",  
-    "pages/date/date",
-    "pages/list/list",
-    "pages/detail/detail",
-    "pages/info/info",
-    "pages/checkout/checkout",
-    "pages/orderinfo/orderinfo",
+    "pages/index/index",
+    "pages/search/search",
+    "pages/inputSearch/inputSearch",
     "pages/city/city",
-    "pages/login/login",
-    "pages/map/map"
+    "pages/zhongjieDetail/zhongjieDetail"
   ],
 
   "window":{
-    "navigationBarBackgroundColor": "#fff",
-    "navigationBarTitleText" : " ",
-    "navigationBarTextStyle":"black",
+    "navigationBarBackgroundColor": "#1aac03",
+    "navigationBarTitleText" : "安X客",
+    "navigationBarTextStyle":"white",
     "enablePullDownRefresh" : false,
     "onReachBottomDistance" : 100
   }

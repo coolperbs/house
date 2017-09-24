@@ -1,0 +1,73 @@
+<view class="page-zhongjieDetail">
+	<view class="scroll-wrapper">
+		
+		<view class="basic-info">
+			<view class="people">
+				<view class="left">
+					<image src="../../asset/rrs.png"></image>
+				</view>
+				<view class="right">
+					<text class="name">杨海</text>
+					<text class="company">
+						上冻了句房地产-上冻了句房地产晋江一家雕
+					</text>
+				</view>
+			</view>
+			<view class="numbers">
+				<view class="num-detail">
+					<text class="num">66%</text>
+					<text class="desc">微信回复率</text>
+				</view>
+				<view class="num-detail">
+					<text class="num">1-3年</text>
+					<text class="desc">服务年限</text>
+				</view>
+				<view class="num-detail">
+					<text class="num">61</text>
+					<text class="desc">服务人数</text>
+				</view>
+			</view>
+		</view>
+
+		<view class="service-detail">
+			<view class="header">
+				<text>主营范围: 锦江-三圣乡 锦江-蓝谷地</text>
+			</view>
+			<view class="detail-list">
+				<view class="list-info">
+					<image src="../../asset/green-point.png"></image>
+					<text class="house-name">鑫源名家一期</text>
+					<text class="sub-title">近30天去过19次</text>
+				</view>
+				<view class="list-info">
+					<image src="../../asset/green-point.png"></image>
+					<text class="house-name">鑫源名家一期</text>
+					<text class="sub-title">近30天去过19次</text>
+				</view>
+				<view class="list-info">
+					<image src="../../asset/green-point.png"></image>
+					<text class="house-name">鑫源名家一期</text>
+					<text class="sub-title">近30天去过19次</text>
+				</view>
+				<view class="list-info">
+					<image src="../../asset/green-point.png"></image>
+					<text class="house-name">鑫源名家一期</text>
+					<text class="sub-title">近30天去过19次</text>
+				</view>
+			</view>
+		</view>
+
+
+		<view class="oldhouseList"></view>	
+	</view>
+	<view class="bottom-bar">
+		<view class="btn rrs" bindtap="share">
+			<image src="../../asset/rrs.png"></image>
+			转发
+		</view>
+		<view class="btn call" bindtap="call">
+			<image src="../../asset/call.png"></image>
+			电话
+		</view>
+	</view>
+</view>

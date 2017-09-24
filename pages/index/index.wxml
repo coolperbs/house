@@ -1,36 +1,53 @@
-<import src="../../views/home/home.wxml"/>
-<import src="../../views/orders/orders.wxml"/>
-
-
-<!--<view class="content">-->
-	<template wx:if="{{currentView}}" is="{{currentView}}" data="{{ ...viewData }}"></template>
-<!--</view>-->
-
-
-<view class="tips" wx:if="{{tips.show}}">
-	<view class="pop">
-		<view class="title">{{ userInfo.user.sex == 2 ? 'Miss' : 'Mr' }} {{userInfo.user.nickName}}，这单商品您还满意吗？</view>
-		<view class="content comment-item">
-			<view class="pics img-floor">
-				<image class="box l-1" src="{{tips.orderInfo.wares[0].wareImgUrl}}"></image>
-				<view class="box l-2"></view>
-				<view class="box l-3"></view>
-			</view>
-			<view class="info">
-				<view class="title">{{tips.orderInfo.wares[0].wareName}}{{ tips.orderInfo.wares.length > 1 ? '等' + tips.orderInfo.wares.length + '件商品' : '' }}</view>
-				<view class="price">共 ¥{{ tips.orderInfo.payPriceStr }}</view>
-			</view>
-		</view>
-		<view class="act">
-			<view class="btn" catchtap="jump" data-url="../comment/comment?orderId={{tips.orderInfo.id}}">评价抽免单</view>
-		</view>
-		<view class="close" catchtap="closeTips">x</view>
+<import src="../../widgets/list/list.wxml"/>
+<view class="page-index">
+	<view>
+		<template is="tpl-search" data="{{...city}}"/>
 	</view>
+	<scroll-view scroll-y="{{true}}" style="height:{{height}}" bindscrolltolower="getNext">
+		<view>
+			<template is="tpl-munu"/>
+		</view>
+		<view wx:if="{{dataList}}">
+			<view class="header">猜你喜欢</view>
+			<block wx:for="{{dataList}}" wx:key="*this">
+				<template is="tpl-listitem-index" data='{{...item}}'></template>
+			</block>
+		</view>
+	</scroll-view>
 </view>
 
-<view class="base toolbar">
-	<view wx:for="{{tab.list}}" data-view="{{item.view}}" wx:key="index" data-index="{{index}}" bindtap="changeTab" class="tab">
-		<image src="../../asset/{{item.className}}.png" mode="widthFix" class="icon bar {{ item.view == currentView ? 'current' : ''}}"></image>
+
+<template name="tpl-munu">
+	<view class="tpl-menu">
+		<view class="menu-item" bindtap="toSearch" data-type="newHouse">
+			<image src="../../asset/new-house.png" class="menu-item-img"></image>
+			<text class="menu-item-txt">新房</text>
+		</view>
+		<view class="menu-item" bindtap="toSearch" data-type="oldHouse">
+			<image src="../../asset/old-house.png" class="menu-item-img"></image>
+			<text class="menu-item-txt">二手房</text>
+		</view>
+		<view class="menu-item" bindtap="toSearch" data-type="rentHouse">
+			<image src="../../asset/rent-house.png" class="menu-item-img"></image>
+			<text class="menu-item-txt">租房</text>
+		</view>
+		<view class="menu-item" bindtap="toSearch" data-type="xiaoqu">
+			<image src="../../asset/xiaoqu.png" class="menu-item-img"></image>
+			<text class="menu-item-txt">小区</text>
+		</view>
+		<view class="menu-item" bindtap="toSearch" data-type="zhongjie">
+			<image src="../../asset/zhongjie.png" class="menu-item-img"></image>
+			<text class="menu-item-txt">房产专家</text>
+		</view>
 	</view>
-	<view class="line" style="left : {{ tab.currentTab * 375 + 189 - 40 }}rpx"></view>
-</view>
+</template>
+
+
+<template name="tpl-search">
+	<view class="tpl-search">
+		<view class="city" bindtap="toCity">{{name}}<image src="../../asset/loc.png" /></view>
+		<input placeholder="安心挑好房，当然安x客" class="input" bindfocus="toInputSearch"/>
+	</view>
+</template>
+
+

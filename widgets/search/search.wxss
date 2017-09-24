@@ -1,0 +1,99 @@
+.tpl-seletSearch-drop-bg{
+	position:absolute;
+	width:100%;
+	height:100%;
+	background-color:rgba(0,0,0,0.2);
+	z-index:1;
+	display: none
+}
+.tpl-seletSearch-drop-bg.active{
+	display: block;
+}
+/**.tpl-seletSearch st**/
+.tpl-seletSearch{
+	position: relative;
+	z-index: 2;
+	background-color: white;
+}
+.tpl-seletSearch .header{
+	display:flex;
+	height:100rpx;
+	border-bottom:1px solid #f1f1f1;
+}
+.tpl-seletSearch .header .drop-btn{
+	width:25%;
+	display:flex;
+	justify-content:center;
+	height:100%;
+	align-items:center;
+}
+.tpl-seletSearch .header .drop-btn.active .title{
+	color:#5cb54a;
+}
+.tpl-seletSearch .header .title{
+	font-size:14px;
+	color:#6e6e6e;
+}
+.tpl-seletSearch .header .arrow-img{
+	width:28rpx;
+	height:28rpx;
+}
+.tpl-seletSearch .drop{
+	position: absolute;
+	width: 100%;
+	background-color: white;
+}
+.tpl-seletSearch .drop-list-item{
+	height:80rpx;
+	display:flex;
+	align-items:center;
+	border-bottom:1px solid #f1f1f1;
+	font-size:15px;
+	color:#666;
+}
+.tpl-seletSearch .drop-list-item{
+	margin-left:30rpx;
+}
+/**.tpl-seletSearch ed**/
+
+
+/**tpl-selectSearchScrollList st**/
+.tpl-seletSearch .drop scroll-view{
+	height:560rpx;
+}
+/**tpl-selectSearchScrollList ed**/
+
+
+
+
+/**tpl-inputSearchCommon st***/
+.tpl-inputSearchCommon {
+	height:100rpx;
+	display:flex;
+	align-items:center;
+	justify-content:center;
+
+}
+.tpl-inputSearchCommon .input{
+	font-size:13px;
+	height:60rpx;
+	padding-left:20rpx;
+	background-color:white;
+	width:350px;
+	border-radius:4px;
+
+}
+/**tpl-inputSearchCommon ed***/
+
+
+/**tpl-selectSearchScrollListWithSub**/
+.tpl-selectSearchScrollListWithSub{}
+.tpl-selectSearchScrollListWithSub .subList{
+	position:absolute;
+	top:0;
+	background-color:#fafafa;
+	width:50%;
+	right:0;
+}
+
+

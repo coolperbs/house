@@ -2,6 +2,7 @@ page{
     display:block;
     width:750rpx;
     height:100%;
+    background-color: white;
 }
 .city-wrap{
     width:750rpx;

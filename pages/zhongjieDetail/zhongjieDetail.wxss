@@ -1,0 +1,119 @@
+.page-zhongjieDetail{
+	
+}
+
+
+.people{
+	height:160rpx;
+	background-color:#1cac00;
+	display:flex;
+	padding:0 30rpx;
+	align-items:center;
+}
+.people .left{
+	width:110rpx;
+	margin-right:20rpx;
+}
+.people .left image{
+	width:110rpx;
+	margin-right:20rpx;
+	height:110rpx;
+	border-radius:50%;
+}
+.people .right{
+	display:flex;
+	flex-direction:column;
+	color:white;
+}
+.people .right .name{
+	font-size:15px;
+}
+.people .right .company{
+	font-size:12px;
+	margin-bottom: 10rpx;
+}
+
+
+.numbers{
+	background-color:white;
+	display:flex;
+	height:140rpx;
+}
+.numbers .num-detail{
+	width:250rpx;
+	display:flex;
+	flex-direction:column;
+	justify-content:center;
+	align-items:center;
+}
+.numbers .num-detail .desc{
+	font-size:12px;
+	color:#b5b5b5;
+}
+
+
+.service-detail{
+	background-color:white;
+	margin-top:20rpx;
+}
+.service-detail .header{
+	height:100rpx;
+	display:flex;
+	align-items:center;
+	padding-left:20rpx;
+	color:#545454;
+	border-bottom:1px solid #f1f1f1;
+}
+.service-detail .detail-list{
+	/*padding-top:50rpx;
+	padding-bottom:50rpx;*/
+	padding:20rpx 0;
+}
+.service-detail .list-info{
+	display:flex;
+	align-items:center;
+	font-size:12px;
+	margin-bottom: 10rpx
+}
+.service-detail image{
+	width:30rpx;
+	height:30rpx;
+	margin-left:16px;
+}
+
+
+
+
+.bottom-bar{
+	display: flex;
+	height: 100rpx;
+	position:fixed;
+	bottom:0;
+	display:flex;
+	width:100%;
+	height:100rpx;
+}
+.bottom-bar .btn{
+	width:375rpx;
+	display:flex;
+	justify-content:center;
+	align-items:center;
+}
+
+.bottom-bar .btn.rrs{
+	background-color:white;
+	color:#a0a0a0;
+}
+
+.bottom-bar .btn image{
+	width:40rpx;
+	height:50rpx;
+	margin-right:10rpx;background-color:white;
+color:#a0a0a0;
+
+}
+
+.bottom-bar .btn.call{
+	background-color:#1cac00;
+	color:white;
+}

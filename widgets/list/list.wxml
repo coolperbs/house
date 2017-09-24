@@ -1,0 +1,210 @@
+
+
+
+<template name="tpl-pagelist">
+	<scroll-view class="tpl-pagelist" 
+	style="height:{{height}}" 
+	scroll-y="{{true}}"
+	bindscrolltolower="pageList_goNextPage">
+		<block wx:if="{{dataList}}">
+			<block wx:for='{{dataList}}' wx:key="id">
+				<template is="tpl-listitem-{{item.itemTpl}}" data="{{...item}}"></template>
+			</block>
+		</block>
+		
+		<view wx:if="{{isLock}}" class="loading">
+			<image src="../../asset/calendar.png"></image>
+			<text>正在努力加载中...</text>
+		</view>
+	</scroll-view>
+</template>
+
+
+<template name="tpl-listitem-xiaoqu">
+	<view class="tpl-listitem xiaoqu">
+		<view class="listitem-inner">
+			<view class="left">
+				<!-- <image src="{{logo}}"></image> -->
+				<image src="https://yimeiimage.oss-cn-shenzhen.aliyuncs.com/201709/41a23a78-adf8-482f-96e3-6670968a5e16"></image>
+			</view>
+			<view class="right">
+				<view class="info">
+					<view class='name'>
+						<text class="title">{{name}}</text>
+					</view>
+					<view class='region'>
+						<text>{{address}}</text>
+					</view>
+					<view class="type">
+						<text>房源数:{{houseNum}}</text>
+					</view>
+				</view>
+				<view class="price">
+					<text class="num">{{price}}</text>
+				</view>
+			</view>
+		</view>
+	</view>
+</template>
+
+<template name="tpl-listitem-renthouse">
+	<view class="tpl-listitem renthouse">
+		<view class="listitem-inner">
+			<view class="left">
+				<!-- <image src="{{logo}}"></image> -->
+				<image src="https://yimeiimage.oss-cn-shenzhen.aliyuncs.com/201709/41a23a78-adf8-482f-96e3-6670968a5e16"></image>
+			</view>
+			<view class="right">
+				<view class="info">
+					<view class='name ellipsis-2 ' >
+						<text class="title">{{name}}</text>
+					</view>
+					<view class='region'>
+						<text>{{address}}</text>
+					</view>
+					<view class="type">
+						<text>{{room}} {{type}}</text>
+					</view>
+				</view>
+				<view class="price">
+					<text class="num">{{price}}</text>
+				</view>
+			</view>
+		</view>
+	</view>
+</template>
+
+
+
+<template name="tpl-listitem-oldhouse">
+	<view class="tpl-listitem oldhouse">
+		<view class="listitem-inner">
+			<view class="left">
+				<!-- <image src="{{logo}}"></image> -->
+				<image src="https://yimeiimage.oss-cn-shenzhen.aliyuncs.com/201709/41a23a78-adf8-482f-96e3-6670968a5e16"></image>
+			</view>
+			<view class="right">
+				<view class="info">
+					<view class='name'>
+						<text class="title">{{name}}</text>
+					</view>
+					<view class='region'>
+						<text>{{address}}</text>
+					</view>
+					<view class="type">
+						<text>{{room}} {{area}}</text>
+					</view>
+				</view>
+				<view class="price">
+					<text class="num">{{price}}</text>
+				</view>
+			</view>
+		</view>
+	</view>
+</template>
+
+
+<template name="tpl-listitem-newhouse">
+	<view class="tpl-listitem newhouse">
+		<view class="listitem-inner">
+			<view class="left">
+				<!-- <image src="{{logo}}"></image> -->
+				<image src="https://yimeiimage.oss-cn-shenzhen.aliyuncs.com/201709/41a23a78-adf8-482f-96e3-6670968a5e16"></image>
+			</view>
+			<view class="right">
+				<view class="info">
+					<view class='name'>
+						<text class="title">{{name}}</text>
+					</view>
+					<view class='region'>
+						<text>{{address}}</text>
+					</view>
+					<view class="type">
+						<text>总面积 {{area}}</text>
+					</view>
+				</view>
+				<view class="price">
+					<text class="num">{{price}}</text>
+				</view>
+			</view>
+		</view>
+	</view>
+</template>
+
+
+<template name="tpl-listitem-zhongjie">
+	<view class="tpl-listitem zhongjie">
+		<view class="listitem-inner">
+			<view class="left">
+				<!-- <image src="{{logo}}"></image> -->
+				<image src="https://yimeiimage.oss-cn-shenzhen.aliyuncs.com/201709/41a23a78-adf8-482f-96e3-6670968a5e16"></image>
+			</view>
+			<view class="right">
+				<view class="info">
+					<view class='name'>
+						<text class="title">{{name}}</text>
+						<text class="title">{{start}}</text>
+					</view>
+					<view class='region ellipsis-1'>
+						<text>所属公司 {{company}}</text>
+					</view>
+					<view class='region ellipsis-1'>
+						<text>服务年限 {{serviceAge}}</text>
+						
+					</view>
+					<view class='region ellipsis-1'>
+						<text>熟悉板块 {{address}}</text>
+					</view>
+				</view>
+			</view>
+		</view>
+	</view>
+</template>
+
+
+
+
+<template name="tpl-listitem-tag">
+	<view class="tpl-listitem-tag">
+		<block wx:for="{{tags}}" for:key="*index">
+			<text class="tag tag-{{index}}">{{item}}</text>
+		</block>
+	</view>
+</template>
+
+
+<template name="tpl-listitem-index">
+	<view class="tpl-listitem index">
+		<view class="listitem-inner">
+			<view class="left">
+				<!-- <image src="{{logo}}"></image> -->
+				<image src="https://yimeiimage.oss-cn-shenzhen.aliyuncs.com/201709/41a23a78-adf8-482f-96e3-6670968a5e16"></image>
+			</view>
+			<view class="right">
+				<view class="info">
+					<view class='name ellipsis-1'>
+						{{name}}
+					</view>
+					<view class='region'>
+						<text>{{address}}</text>
+					</view>
+					<view class='tag-list'>
+						<block wx:if="{{tags}}">
+							<template is="tpl-listitem-tag" data="{{tags}}"></template>
+						</block>
+					</view>
+					<view class="type">
+						<text>{{room}} {{area}}</text>
+					</view>
+				</view>
+				<view class="price">
+					<text class="num">{{price}}</text>
+				</view>
+			</view>
+		</view>
+	</view>
+</template>
+
+
+
+

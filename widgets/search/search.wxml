@@ -1,0 +1,97 @@
+<template name="tpl-selectSearch">
+	<view class="tpl-seletSearch">
+		<view class="header">
+			<block wx:if='{{config}}'>
+				<block wx:for="{{config}}" wx:key='type'>
+					<view class="drop-btn {{item.param?'active':''}}" 
+					bindtap="selectSearch_changeHeader" 
+					data-type="{{item.type}}" 
+					style="width:{{item.width}}" 
+					>
+						<text class="title">{{item.searchText || item.header.name}}</text>
+						<image class="arrow-img" src="../../asset/arrow-right.png"/>
+					</view>
+				</block>
+			</block>
+		</view>
+		<view class="drop" wx:if="{{drop.active}}">
+			<template is="tpl-{{drop.tpl}}" data="{{...drop.data}}"></template>
+		</view>
+	</view>
+	<view class="tpl-seletSearch-drop-bg {{drop.active?'active':''}}"></view>
+</template>
+
+
+
+<template name="tpl-selectSearchScrollList">
+	<scroll-view class='tpl-selectSearchScrollList' scroll-y="true">
+		<block wx:if="{{items}}">
+			<block wx:for="{{items}}" wx:key="*this">
+				<view class="drop-list-item" 
+						data-key="{{item.key}}"
+						data-text="{{item.text}}"
+						data-value="{{item.value}}"
+						bindtap="selectSearch_changeItem">
+					<view class="message">{{item.text}}</view>
+				</view>
+			</block>
+		</block>
+	</scroll-view>
+</template>
+
+<template name="tpl-selectSearchScrollListWithSub">
+	<view class="tpl-selectSearchScrollListWithSub">
+		<block wx:if="{{mainList}}">
+			<scroll-view class="mainList" scroll-y="true">
+				<block wx:for="{{mainList}}" wx:key="value">
+					<view class="drop-list-item" 
+						data-key="{{item.key}}"
+						data-value="{{item.value}}"
+						data-hasSub="{{item.hasSub}}"
+						bindtap="{{'selectSearch_changeItem'}}">
+						<view class="message">{{item.text}}</view>
+					</view>
+				</block>
+			</scroll-view>
+		</block>
+		<block wx:if="{{children}}">
+			<scroll-view class="subList" scroll-y="true">
+				<block wx:for="{{children}}" wx:key="index">
+					<view class="drop-list-item" 
+						data-key="{{item.key}}"
+						data-value="{{item.value}}"
+						data-text="{{item.text}}"
+						bindtap="{{'selectSearch_changeItem'}}">
+						<view class="message">{{item.text}}</view>
+					</view>
+				</block>
+			</scroll-view>
+		</block>
+	</view>
+</template>
+
+<template name="tpl-selectSearchScrollListAndInput">
+	<view>tpl-selectSearchScrollListAndInput</view>
+</template>
+
+
+<template name="tpl-selectSearchALL">
+</template>
+
+
+
+
+<template name="tpl-inputSearchCommon">
+	<view class="tpl-inputSearchCommon">
+		<input placeholder="请输入小区" class="input" 
+		bindfocus="inputSearchCommon_focus" 
+		bindconfirm="inputSearchCommon_Confirm"/>
+	</view>
+</template>
+
+
+<template name="tpl-inputSearchIndex">
+	<view class="">
+		
+	</view>
+</template>
