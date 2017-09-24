@@ -4,7 +4,9 @@
     "pages/search/search",
     "pages/inputSearch/inputSearch",
     "pages/city/city",
-    "pages/zhongjieDetail/zhongjieDetail"
+    "pages/zhongjieDetail/zhongjieDetail",
+    "pages/detail/detail",
+    "pages/comment/comment"
   ],
 
   "window":{

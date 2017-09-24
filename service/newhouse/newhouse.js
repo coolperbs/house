@@ -6,11 +6,12 @@ var handle, CFG, _fn,
 	uuid = require( '../../common/uuid/uuid' ),
 	config = require('../../config'),
 	env = config.env,
+	app = getApp(),
 	url;
 
 var handle ={
 	search:function(param,callback){
-		var url = 'https://housegateway.yimeixinxijishu.com/app/store/building/list';
+		var url = app.config.host+'/app/store/building/list';
 		var param = param||{};
 		ajax.query( {
 			url : url,
@@ -21,19 +22,8 @@ var handle ={
 			}
 		} );
 
-	},
-	searchIndex:function(param,callback){
-		var url = 'https://housegateway.yimeixinxijishu.com/app/index/second/list'
-		var param = param || {};
-		ajax.query({
-			url:url,
-			param:param
-		},function(res){
-			if(callback && typeof callback === 'function'){
-				callback(res);
-			}
-		});
 	}
+	
 
 }
 

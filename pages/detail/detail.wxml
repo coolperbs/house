@@ -1,0 +1,456 @@
+<view class="head">
+	<view class="pics" wx:if="{{pageInfo.store.detailImage}}">
+		<swiper catchtap="showImage" bindchange="changeSwiper">
+			<swiper-item wx:for="{{pageInfo.store.detailImage}}" wx:key="index">
+				<image src="{{item}}"></image>
+			</swiper-item>
+		</swiper>
+		<view class="num">{{ imageIndex }} / {{pageInfo.store.detailImage.length}}</view>
+	</view>
+	<view class="info">
+		<view class="main">
+			<view class="title ellipsis-2">{{pageInfo.store.name}}</view>
+			<view class="address">地址：{{pageInfo.store.address}}</view>
+		</view>
+		<button open-type="share" class="share"><image src="../../asset/rrs.png"></image></button>
+	</view>
+</view>
+
+<!-- 新房信息 START -->
+<view class="mod second sell" wx:if="{{ pageType == 4 }}">
+	<view class="main">
+		<view class="cell">
+			<view class="strong">{{pageInfo.store.price}}起</view>
+			售价
+		</view>
+		<view class="line"></view>
+		<view class="cell">
+			<view class="strong">{{pageInfo.store.totlarea}}</view>
+			面积
+		</view>
+	</view>
+	<view class="list">
+		<view class="row">
+			<view class="cell">
+				<view class="key">楼盘位置:</view>
+				<view class="value">{{pageInfo.store.address}}</view>
+			</view>
+			<view class="cell">
+				<view class="key">交房时间:</view>
+				<view class="value">{{ pageInfo.store.endTime }}</view>
+			</view>
+		</view>
+		<view class="row">
+			<view class="cell">
+				<view class="key">车位配比:</view>
+				<view class="value">{{pageInfo.store.carnum}}</view>
+			</view>
+			<view class="cell">
+				<view class="key">规划户数:</view>
+				<view class="value">{{pageInfo.store.totalnum}}</view>
+			</view>
+		</view>
+		<view class="row">
+			<view class="cell">
+				<view class="key">容积率:</view>
+				<view class="value">{{pageInfo.store.volume}}</view>
+			</view>
+			<view class="cell">
+				<view class="key">绿化率:</view>
+				<view class="value">{{pageInfo.store.greenin}}%</view>
+			</view>
+		</view>
+		<view class="row">
+			<view class="cell">
+				<view class="key">类型:</view>
+				<view class="value">{{buildType[pageInfo.store.type]}}</view>
+			</view>
+		</view>
+		<!--<view class="row">
+			<view class="cell">
+				<view class="key">装修情况:</view>
+				<view class="value"></view>
+			</view>
+		</view>-->
+		<view class="row">
+			<view class="cell">
+				<view class="key">产权年限:</view>
+				<view class="value">{{pageInfo.store.propertyfee}}</view>
+			</view>
+		</view>
+		<!--<view class="row">
+			<view class="cell">
+				<view class="key">建筑类型:</view>
+				<view class="value"></view>
+			</view>
+		</view>-->
+		<view class="row">
+			<view class="cell">
+				<view class="key">开发商:</view>
+				<view class="value">{{pageInfo.store.developer}}</view>
+			</view>
+		</view>
+		<view class="row">
+			<view class="cell">
+				<view class="key">物业公司:</view>
+				<view class="value">{{pageInfo.store.wumart}}</view>
+			</view>
+		</view>
+	</view>	
+</view>
+<!-- 新房信息 END -->
+
+<view class="mod" wx:if="{{ pageInfo.unit && pageInfo.unit.length }}">
+	<view class="title">主力户型</view>
+	<view class="unit">
+		<scroll-view class="scroll" scroll-x="{{ true }}">
+			<view class="u-cell" wx:for="{{ pageInfo.unit }}" wx:key="index">
+				<image class="u-logo" src="{{item.logo}}"></image>
+				<view class="u-name ellipsis-1">{{item.mcode}}</view>
+				<view class="u-sub ellipsis-1">{{item.name}} {{item.nameEn}}</view>
+				<view class="u-status ellipsis-1">信息</view>
+			</view>
+		</scroll-view>
+	</view>
+</view>
+
+<!-- 二手房信息 START -->
+<view class="mod second" wx:if="{{ pageType == 2 }}">
+	<view class="main">
+		<view class="cell">
+			<view class="strong">{{pageInfo.store.price}}</view>
+			售价
+		</view>
+		<view class="cell">
+			<view class="strong">{{secondStoreType[ pageInfo.store.type ]}}</view>
+			房型
+		</view>
+		<view class="cell">
+			<view class="strong">{{pageInfo.store.totlarea}}</view>
+			面积
+		</view>
+	</view>
+	<view class="list">
+		<view class="row">
+			<view class="cell">
+				<view class="key">单价:</view>
+				<view class="value">{{ pageInfo.store.greenin }}元/平米</view>
+			</view>
+			<view class="cell">
+				<view class="key">楼层:</view>
+				<view class="value">{{pageInfo.store.volume}}</view>
+			</view>
+		</view>
+		<view class="row">
+			<view class="cell">
+				<view class="key">朝向:</view>
+				<view class="value">{{pageInfo.store.totalnum}}</view>
+			</view>
+			<view class="cell">
+				<view class="key">类型:</view>
+				<view class="value">{{storeType[pageInfo.store.propertyfee]}}</view>
+			</view>
+		</view>
+		<view class="row">
+			<view class="cell">
+				<view class="key">装修:</view>
+				<view class="value">{{pageInfo.store.carnum}}</view>
+			</view>
+			<view class="cell">
+				<view class="key">年代:</view>
+				<view class="value">{{pageInfo.store.endTime}}</view>
+			</view>
+		</view>
+		<view class="row">
+			<view class="cell">
+				<view class="key">小区:</view>
+				<view class="value ellipsis-1 link">
+					<navigator url="../detail/detail?type=1&storeid={{pageInfo.storeInfo.id}}">
+						{{ pageInfo.storeInfo.name }}
+					</navigator>
+				</view>
+			</view>
+		</view>
+	</view>	
+</view>
+<!-- 二手房信息 END -->
+
+<!-- 租房信息 START -->
+<view class="mod second" wx:if="{{ pageType == 3 }}">
+	<view class="list">
+		<view class="row">
+			<view class="cell">
+				<view class="key">租金:</view>
+				<view class="value"><view class="strong">{{ pageInfo.store.price }}</view></view>
+			</view>
+
+		</view>
+		<view class="row">
+			<view class="cell">
+				<view class="key">房型:</view>
+				<view class="value">{{secondStoreType[ pageInfo.store.type ]}} ({{ pageInfo.store.wumart == 1 ? '整租' : '合租' }})</view>
+			</view>
+			<view class="cell">
+				<view class="key">装修:</view>
+				<view class="value">{{pageInfo.store.carnum}}</view>
+			</view>
+		</view>
+		<view class="row">
+			<view class="cell">
+				<view class="key">面积:</view>
+				<view class="value">{{pageInfo.store.totlarea}}㎡</view>
+			</view>
+			<view class="cell">
+				<view class="key">朝向:</view>
+				<view class="value">{{pageInfo.store.totalnum}}</view>
+			</view>
+		</view>
+		<view class="row">
+			<view class="cell">
+				<view class="key">类型:</view>
+				<view class="value">{{storeType[pageInfo.store.propertyfee]}}</view>
+			</view>
+			<view class="cell">
+				<view class="key">年代:</view>
+				<view class="value">{{pageInfo.store.endTime}}</view>
+			</view>
+		</view>
+		<view class="row">
+			<view class="cell">
+				<view class="key">小区:</view>
+				<view class="value ellipsis-1 link">
+					<navigator url="../detail/detail?type=1&storeid={{pageInfo.storeInfo.id}}">
+						{{ pageInfo.storeInfo.name }}
+					</navigator>
+				</view>
+			</view>
+		</view>
+	</view>	
+</view>
+<!-- 租房信息 END -->
+
+<!-- 房源概况 START -->
+<view class="mod" wx:if="{{ pageType == 2 || pageType == 3 }}">
+	<view class="title">房源概况</view>
+	<view class="desc" wx:if="{{ pageInfo.store.introduceList }}">
+		<view class="desc-title" wx:if="{{ pageInfo.store.wumart && pageType == 2 }}">
+			<view class="desc-tag">{{pageInfo.store.wumart}}</view>
+		</view>
+		<view class="desc-info">
+			<view wx:for="{{ pageInfo.store.introduceList }}" wx:key="index">{{item}}</view>
+		</view>
+	</view>
+	<view class="desc" wx:if="{{ pageInfo.store.developerList }}">
+		<view class="desc-title">
+			核心卖点
+		</view>
+		<view class="desc-info">
+			<view wx:for="{{ pageInfo.store.developerList }}" wx:key="index">{{item}}</view>
+		</view>
+	</view>
+	<view class="desc" wx:if="{{ pageInfo.store.mindList }}">
+		<view class="desc-title">
+			业主心态
+		</view>
+		<view class="desc-info">
+			<view wx:for="{{ pageInfo.store.mindList }}" wx:key="index">{{item}}</view>
+		</view>
+	</view>
+	<view class="desc" wx:if="{{ pageInfo.store.matingList }}">
+		<view class="desc-title">
+			小区配套
+		</view>
+		<view class="desc-info">
+			<view wx:for="{{ pageInfo.store.matingList }}" wx:key="index">{{item}}</view>
+		</view>
+	</view>
+	<view class="desc" wx:if="{{ pageInfo.store.serviceList }}">
+		<view class="desc-title">
+			服务介绍
+		</view>
+		<view class="desc-info">
+			<view wx:for="{{ pageInfo.store.serviceList }}" wx:key="index">{{item}}</view>
+		</view>
+	</view>
+</view>
+<!-- 房源概况 END -->
+
+<!-- 小区房基本信息 START -->
+<view class="mod" wx:if="{{ pageType == 1}}"> 
+	<view class="title">基本信息</view>
+	<view class="list">
+		<view class="row">
+			<view class="cell">
+				<view class="key">物业类型:</view>
+				<view class="value">{{ storeType[pageInfo.store.type] }}</view>
+			</view>
+			<view class="cell">
+				<view class="key">竣工时间:</view>
+				<view class="value">{{ pageInfo.store.endTime }}年</view>
+			</view>
+		</view>
+		<view class="row">
+			<view class="cell">
+				<view class="key">总户数:</view>
+				<view class="value">{{pageInfo.store.totalnum}}</view>
+			</view>
+			<view class="cell">
+				<view class="key">停车位:</view>
+				<view class="value">{{pageInfo.store.carnum}}</view>
+			</view>
+		</view>
+		<view class="row">
+			<view class="cell">
+				<view class="key">容积率:</view>
+				<view class="value">{{ pageInfo.store.volume }}</view>
+			</view>
+			<view class="cell">
+				<view class="key">均价:</view>
+				<view class="value">{{ pageInfo.store.price }}</view>
+			</view>
+		</view>
+		<view class="row">
+			<view class="cell">
+				<view class="key">建筑面积:</view>
+				<view class="value">{{pageInfo.store.totlarea}}</view>
+			</view>
+		</view>
+		<view class="row">
+			<view class="cell">
+				<view class="key">物业费:</view>
+				<view class="value">{{pageInfo.store.propertyfee}}</view>
+			</view>
+		</view>
+		<view class="row">
+			<view class="cell">
+				<view class="key">物业公司:</view>
+				<view class="value">{{pageInfo.store.wumart}}</view>
+			</view>
+		</view>
+		<view class="row">
+			<view class="cell">
+				<view class="key">开发商:</view>
+				<view class="value">{{pageInfo.store.developer}}</view>
+			</view>
+		</view>
+	</view>
+	<view class="info">{{ pageInfo.store.introduce }}</view>
+	<!--<view class="more">展开</view>-->
+</view>
+<!-- 小区房基本信息 END -->
+
+<view class="mod">
+	<view class="title">周边解读</view>
+	<map class="map" markers="{{ mapMarker }}" catchtap="showmap" data-lng="{{pageInfo.store.lng}}" data-lat="{{pageInfo.store.lat}}" longitude="{{ pageInfo.store.lng }}" latitude="{{ pageInfo.store.lat }}" ></map>
+
+	<view class="comments" wx:if="{{ pageInfo.middleman && pageInfo.middleman.length }}">
+		<view class="comment">
+			<view class="agent">
+				<image class="img" src="{{pageInfo.middleman[0].logo}}"></image>
+				<view class="name">{{pageInfo.middleman[0].name}}</view>
+				<view class="comp">{{ pageInfo.middleman[0].company }}</view>
+			</view>
+
+			<view class="feature" wx:if="{{ pageInfo.middleman[0].good }}">
+				<view class="labels">
+					<view class="label">特色</view>
+				</view>
+				<view class="point">{{ pageInfo.middleman[0].good }}</view>
+				<!--
+				<view class="point">
+					<view class="strong">轨道交通:</view>爱的发声方法爱的发声方法爱的发声方法爱的发声方法爱的发声方法爱的发声方法爱的发声方法
+				</view>
+				<view class="point">
+					<view class="strong">附近学校:</view>爱的发声方法
+				</view>
+				<view class="point">
+					<view class="strong">小区户型:</view>爱的发声方法
+				</view>
+				<view class="point">
+					<view class="strong">生活配套:</view>爱的发声方法
+				</view>
+				<view class="point">
+					<view class="strong">房屋品质:</view>爱的发声方法
+				</view>-->
+			</view>
+
+			<view class="feature less" wx:if="{{pageInfo.middleman[0].bad}}">
+				<view class="labels">
+					<view class="label">不足</view>
+				</view>
+				<view class="point">
+					{{pageInfo.middleman[0].bad}}
+				</view>
+			</view>
+		</view>
+		<navigator url="../comment/comment?storeid={{storeId}}&type={{pageType}}" class="more">查看更多</navigator>
+	</view>
+</view>
+
+<view class="mod house" wx:if="{{ pageType == 1 }}">
+	<view class="tabs">
+		<view data-tab="2" catchtap="changeTab" class="tab {{ selectTab == 2 ? 'current' : '' }}">小区在售房</view>
+		<view data-tab="3" catchtap="changeTab" class="tab {{ selectTab == 3 ? 'current' : '' }}">小区在租房</view>
+	</view>
+	<view class="house-list">
+		<navigator url="../detail/detail?storeid={{item.id}}&type={{selectTab}}" class="house" wx:for="{{ pageInfo[houseType[selectTab]] }}" wx:key="index">
+			<image class="pic" src="{{image.logo}}"></image>
+			<view class="house-info">
+				<view class="name ellipsis-1">{{item.name}}</view>
+				<view class="sub ellipsis-1" wx:if="{{item.address}}">{{ item.address }}</view>
+				<view class="sub ellipsis-1" wx:if="{{ item.room || item.type }}">{{item.room}} {{item.type}}</view>
+				<view class="sub tags ellipsis-1" wx:if="{{ item.tags}}">
+					<view class="tag" wx:for="{{ item.tags }}" wx:key="t-index" wx:for-index="t-index" wx:for-item="tag">{{tag}}</view>
+				</view>
+				<view class="price">{{item.price}}</view>
+			</view>
+		</navigator>
+	</view>
+	<!-- <view class="more" bindtap="xiaoQuSearch" data-id="{{pageInfo.store.id}}">查看更多</view> -->
+</view>
+
+<view class="mod house">
+	<view class="title">
+		附近相似小区
+	</view>
+	<view class="house-list">
+		<navigator url="../detail/detail?storeid={{item.id}}&type=1" class="house" wx:for="{{ pageInfo.storeNear }}" wx:key="index">
+			<image class="pic" src="{{image.logo}}"></image>
+			<view class="house-info">
+				<view class="name ellipsis-1">{{item.name}}</view>
+				<view class="sub ellipsis-1" wx:if="{{item.address}}">{{ item.address }}</view>
+				<view class="sub ellipsis-1" wx:if="{{ item.room || item.type }}">{{item.room}} {{item.type}}</view>
+				<view class="sub tags ellipsis-1" wx:if="{{ item.tags}}">
+					<view class="tag" wx:for="{{ item.tags }}" wx:key="t-index" wx:for-index="t-index" wx:for-item="tag">{{tag}}</view>
+				</view>
+				<view class="price">{{item.price}}</view>
+			</view>
+		</navigator>
+	</view>
+	<!-- <view class="more">查看更多</view> -->
+</view>
+
+<view class="man" wx:if="{{ pageType == 2 || pageType == 3 }}">
+	<image class="logo" src="{{ pageInfo.man.logo }}"></image>
+	<view class="info">
+		<view class="name">{{ pageInfo.man.name }}</view>
+		<view class="comp">{{ pageInfo.man.company }}</view>
+	</view>
+	<view class="button" data-phone="{{ pageInfo.man.phone }}" catchtap="phone"><image src="../../asset/call.png" class="phonecall-img"/>电话联系</view>
+</view>
+
+<view class="man" wx:if="{{ pageType == 4 }}">
+	<view class="button" data-phone="{{ pageInfo.man.phone }}" catchtap="phone"><image src="../../asset/call.png" class="phonecall-img"/>咨询售楼处</view>
+</view>
+
+
+
+
+
+
+
+
+
+
+
+

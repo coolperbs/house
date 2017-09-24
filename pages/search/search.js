@@ -27,7 +27,9 @@ Page({
 _fn = {
 	init:function(page){
 		_fn.changeTitle(page);
-		page.searchHandler = _fn.getSearchHander(page);
+		var handlers = _fn.getActionHandlers(page);
+		page.searchHandler = handlers.searchHandler;
+		page.detailHandler = handlers.detailHandler;
 
 		if(!page.selectSearchInst){
 			page.selectSearchInst = new selectSearch({
@@ -57,6 +59,8 @@ _fn = {
 					});
 				},
 				tapItem:function(res){
+					console.log(123);
+					page.detailHandler(res);
 
 				}
 			});
@@ -87,27 +91,66 @@ _fn = {
 			title:pageTitle
 		})
 	},
-	getSearchHander:function(page){
+	getActionHandlers:function(page){
 		var pageName = page.pageName
 		var searchHandler;
+		var detailHandler;
 		switch(true){
 			case pageName==="newHouse":
 				searchHandler = _fn.searchNewHouse;
+				detailHandler = _fn.toNewHouseDetail
 				break;
 			case pageName==="oldHouse":
 				searchHandler = _fn.searchOldHouse
+				detailHandler = _fn.toOldHouseDetail
 				break;
 			case pageName==="rentHouse":
 				searchHandler = _fn.searchRentHouse
+				detailHandler = _fn.toRentHouseDetail
 				break;
 			case pageName==="xiaoqu":
 				searchHandler = _fn.searchXiaoQu
+				detailHandler = _fn.toXiaoQuDetail
 				break;
 			case pageName==="zhongjie":
 				searchHandler = _fn.searchZhongJie
+				detailHandler = _fn.toZhongjieDetail
 				break;
 		}
-		return searchHandler
+		return {
+			searchHandler:searchHandler,
+			detailHandler:detailHandler
+		}
+	},
+	toZhongjieDetail:function(param){
+		var id = param.id;
+		wx.navigateTo({
+			url:'../zhongjieDetail/zhongjieDetail?id='+id
+		});
+	},
+	toXiaoQuDetail:function(param){
+		var storeId = param.id;
+		wx.navigateTo({
+			url:'../detail/detail?type=1&storeid='+storeId
+		});
+	},
+	toOldHouseDetail:function(param){
+		var storeId = param.id;
+		wx.navigateTo({
+			url:'../detail/detail?type=2&storeid='+storeId
+		});
+	},
+	toRentHouseDetail:function(param){
+		var storeId = param.id;
+		wx.navigateTo({
+			url:'../detail/detail?type=3&storeid='+storeId
+		});
+	},
+	toNewHouseDetail:function(param){
+		var storeId = param.id;
+		wx.navigateTo({
+			url:'../detail/detail?type=4&storeid='+storeId
+		});
 	},
 	searchNewHouse:function(param,callback){
 		var defaultParam = {

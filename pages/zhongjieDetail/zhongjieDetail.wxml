@@ -1,3 +1,5 @@
+<import src="../../widgets/list/list.wxml"/>
+
 <view class="page-zhongjieDetail">
 	<view class="scroll-wrapper">
 		
@@ -7,33 +9,37 @@
 					<image src="../../asset/rrs.png"></image>
 				</view>
 				<view class="right">
-					<text class="name">杨海</text>
+					<text class="name">{{man.name}}</text>
 					<text class="company">
-						上冻了句房地产-上冻了句房地产晋江一家雕
+						{{man.company}}
 					</text>
 				</view>
 			</view>
 			<view class="numbers">
 				<view class="num-detail">
-					<text class="num">66%</text>
-					<text class="desc">微信回复率</text>
-				</view>
-				<view class="num-detail">
-					<text class="num">1-3年</text>
+					<text class="num">{{man.serviceAge}}</text>
 					<text class="desc">服务年限</text>
 				</view>
 				<view class="num-detail">
-					<text class="num">61</text>
-					<text class="desc">服务人数</text>
+					<block wx:if="{{man.star}}">
+						<view class = 'stars'>
+							<block wx:for="{[1,2,3,4,5]}" wx:key="*this">
+								<block wx:if="{{item<=man.star}}">
+									<image src="../../asset/star.png"></image>
+								</block>
+							</block>
+						</view>
+					</block>
+					<text class="desc">等级</text>
 				</view>
 			</view>
 		</view>
 
 		<view class="service-detail">
 			<view class="header">
-				<text>主营范围: 锦江-三圣乡 锦江-蓝谷地</text>
+				<text>主营范围: {{man.address}}</text>
 			</view>
-			<view class="detail-list">
+			<!-- <view class="detail-list">
 				<view class="list-info">
 					<image src="../../asset/green-point.png"></image>
 					<text class="house-name">鑫源名家一期</text>
@@ -54,18 +60,25 @@
 					<text class="house-name">鑫源名家一期</text>
 					<text class="sub-title">近30天去过19次</text>
 				</view>
-			</view>
+			</view> -->
 		</view>
 
 
-		<view class="oldhouseList"></view>	
+		<view class="oldhouseList">
+			<view wx:if="{{lease}}">
+				<view class="header">他的在售房</view>
+				<block wx:for="{{lease}}" wx:key="*this">
+					<template is="tpl-listitem-index" data='{{...item}}'></template>
+				</block>
+			</view>
+		</view>	
 	</view>
 	<view class="bottom-bar">
-		<view class="btn rrs" bindtap="share">
+		<button class="btn rrs" bindtap="share" open-type="share">
 			<image src="../../asset/rrs.png"></image>
 			转发
-		</view>
-		<view class="btn call" bindtap="call">
+		</button>
+		<view class="btn call" bindtap="call" data-phone="{{man.phone}}">
 			<image src="../../asset/call.png"></image>
 			电话
 		</view>

@@ -11,9 +11,12 @@ var _fn;
 Page({
 
 	onShow:function(){
+		console.log(111);
 		var self = this;
 		self.isLock = false;
 		self.isLast = false;
+		self.currentPage = 0;
+		self.dataList = [];
 		_fn.init(self);
 	},
 	toSearch:function(e){
@@ -43,6 +46,14 @@ Page({
 		}else{
 			_fn.getPageData(self);
 		}
+	},
+	pageList_tapItem:function(e){
+		var storeId = e.currentTarget.dataset.id;
+		var url = '../detail/detail?type=2&storeid='+storeId;
+		console.log(url);
+		wx.navigateTo({
+			url:url
+		});
 	}
 
 });
@@ -50,7 +61,10 @@ Page({
 _fn = {
 	init:function(page){
 		var pageListHeight = (utils.toRpx(wx.getSystemInfoSync().windowHeight)-100)+'rpx';
-		page.setData({height:pageListHeight});
+		page.setData({
+			height:pageListHeight,
+			dataList:[]
+		});
 		_fn.getPageData(page);
 		var city = wx.getStorageSync('city');
 		page.setData({
@@ -69,13 +83,15 @@ _fn = {
 			cityCode:wx.getStorageSync('city').code
 		}
 		page.dataList = page.dataList || [];
-		newhouseService.searchIndex(param,function(res){
+		oldhouseService.searchIndex(param,function(res){
 			if(res.code==='0000' && res.success===true){
 				var newDataList = res.data.stores;
-				page.dataList = page.dataList.concat(newDataList);
-				page.setData({
-					dataList:page.dataList
-				});
+				if(newDataList && newDataList.length>0){
+					page.dataList = page.dataList.concat(newDataList);
+					page.setData({
+						dataList:page.dataList
+					});
+				}
 				page.isLock = false;
 				page.isLast = !res.data.hasMore;
 			}

@@ -7,7 +7,7 @@
 		<view>
 			<template is="tpl-munu"/>
 		</view>
-		<view wx:if="{{dataList}}">
+		<view wx:if="{{dataList && dataList.length>0}}">
 			<view class="header">猜你喜欢</view>
 			<block wx:for="{{dataList}}" wx:key="*this">
 				<template is="tpl-listitem-index" data='{{...item}}'></template>

@@ -369,6 +369,10 @@
 	margin-bottom:5rpx;
 	/*height: 40px;*/
 	width: 450rpx;
+	display: flex;
+}
+.tpl-listitem.zhongjie .listitem-inner .right .info .name .title{
+	margin-right: 20rpx
 }
 .tpl-listitem.zhongjie .listitem-inner .right .info .region{
 	font-size:12px;
@@ -398,7 +402,10 @@
 }
 /**.tpl-listitem.zhongjie ed**/
 
-
+.stars image{
+	width:20rpx;
+	height:20rpx;
+}
 
 
 

@@ -1,0 +1,28 @@
+<view class="mod">
+	<view class="comments" wx:if="{{ pageInfo.middleman && pageInfo.middleman.length }}">
+		<view class="comment" wx:for="{{ pageInfo.middleman }}" wx:key="index">
+			<view class="agent">
+				<image class="img" src="{{item.logo}}"></image>
+				<view class="name">{{item.name}}</view>
+				<view class="comp">{{ item.company }}</view>
+			</view>
+
+			<view class="feature" wx:if="{{ item.good }}">
+				<view class="labels">
+					<view class="label">特色</view>
+				</view>
+				<view class="point">{{ item.good }}</view>
+			</view>
+
+			<view class="feature less" wx:if="{{item.bad}}">
+				<view class="labels">
+					<view class="label">不足</view>
+				</view>
+				<view class="point">
+					{{item.bad}}
+				</view>
+			</view>
+		</view>
+	</view>
+</view>
+

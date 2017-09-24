@@ -8,7 +8,9 @@
 	bindscrolltolower="pageList_goNextPage">
 		<block wx:if="{{dataList}}">
 			<block wx:for='{{dataList}}' wx:key="id">
-				<template is="tpl-listitem-{{item.itemTpl}}" data="{{...item}}"></template>
+				<view>
+					<template is="tpl-listitem-{{item.itemTpl}}" data="{{...item}}"></template>
+				</view>
 			</block>
 		</block>
 		
@@ -21,11 +23,11 @@
 
 
 <template name="tpl-listitem-xiaoqu">
-	<view class="tpl-listitem xiaoqu">
+	<view class="tpl-listitem xiaoqu" bindtap="pageList_tapItem" data-id="{{id}}">
 		<view class="listitem-inner">
 			<view class="left">
-				<!-- <image src="{{logo}}"></image> -->
-				<image src="https://yimeiimage.oss-cn-shenzhen.aliyuncs.com/201709/41a23a78-adf8-482f-96e3-6670968a5e16"></image>
+				<image src="{{logo}}"></image>
+				
 			</view>
 			<view class="right">
 				<view class="info">
@@ -48,11 +50,10 @@
 </template>
 
 <template name="tpl-listitem-renthouse">
-	<view class="tpl-listitem renthouse">
+	<view class="tpl-listitem renthouse" bindtap="pageList_tapItem" data-id="{{id}}">
 		<view class="listitem-inner">
 			<view class="left">
-				<!-- <image src="{{logo}}"></image> -->
-				<image src="https://yimeiimage.oss-cn-shenzhen.aliyuncs.com/201709/41a23a78-adf8-482f-96e3-6670968a5e16"></image>
+				<image src="{{logo}}"></image>
 			</view>
 			<view class="right">
 				<view class="info">
@@ -77,11 +78,10 @@
 
 
 <template name="tpl-listitem-oldhouse">
-	<view class="tpl-listitem oldhouse">
+	<view class="tpl-listitem oldhouse" bindtap="pageList_tapItem" data-id="{{id}}">
 		<view class="listitem-inner">
 			<view class="left">
-				<!-- <image src="{{logo}}"></image> -->
-				<image src="https://yimeiimage.oss-cn-shenzhen.aliyuncs.com/201709/41a23a78-adf8-482f-96e3-6670968a5e16"></image>
+				<image src="{{logo}}"></image>
 			</view>
 			<view class="right">
 				<view class="info">
@@ -105,11 +105,11 @@
 
 
 <template name="tpl-listitem-newhouse">
-	<view class="tpl-listitem newhouse">
+	<view class="tpl-listitem newhouse" bindtap="pageList_tapItem" data-id="{{id}}">
 		<view class="listitem-inner">
 			<view class="left">
-				<!-- <image src="{{logo}}"></image> -->
-				<image src="https://yimeiimage.oss-cn-shenzhen.aliyuncs.com/201709/41a23a78-adf8-482f-96e3-6670968a5e16"></image>
+				<image src="{{logo}}"></image>
+				
 			</view>
 			<view class="right">
 				<view class="info">
@@ -133,17 +133,25 @@
 
 
 <template name="tpl-listitem-zhongjie">
-	<view class="tpl-listitem zhongjie">
+	<view class="tpl-listitem zhongjie" bindtap="pageList_tapItem" data-id="{{id}}">
 		<view class="listitem-inner">
 			<view class="left">
-				<!-- <image src="{{logo}}"></image> -->
-				<image src="https://yimeiimage.oss-cn-shenzhen.aliyuncs.com/201709/41a23a78-adf8-482f-96e3-6670968a5e16"></image>
+				<image src="{{logo}}"></image>
+				
 			</view>
 			<view class="right">
 				<view class="info">
 					<view class='name'>
 						<text class="title">{{name}}</text>
-						<text class="title">{{start}}</text>
+						<block wx:if="{{star}}">
+							<view class = 'stars'>
+								<block wx:for="{[1,2,3,4,5]}" wx:key="*this">
+									<block wx:if="{{item<=star}}">
+										<image src="../../asset/star.png"></image>
+									</block>
+								</block>
+							</view>
+						</block>
 					</view>
 					<view class='region ellipsis-1'>
 						<text>所属公司 {{company}}</text>
@@ -162,23 +170,12 @@
 </template>
 
 
-
-
-<template name="tpl-listitem-tag">
-	<view class="tpl-listitem-tag">
-		<block wx:for="{{tags}}" for:key="*index">
-			<text class="tag tag-{{index}}">{{item}}</text>
-		</block>
-	</view>
-</template>
-
-
 <template name="tpl-listitem-index">
-	<view class="tpl-listitem index">
+	<view class="tpl-listitem index" bindtap="pageList_tapItem" data-id="{{id}}">
 		<view class="listitem-inner">
 			<view class="left">
-				<!-- <image src="{{logo}}"></image> -->
-				<image src="https://yimeiimage.oss-cn-shenzhen.aliyuncs.com/201709/41a23a78-adf8-482f-96e3-6670968a5e16"></image>
+				<image src="{{logo}}"></image>
+				
 			</view>
 			<view class="right">
 				<view class="info">
@@ -206,5 +203,16 @@
 </template>
 
 
+<template name="tpl-listitem-tag">
+	<view class="tpl-listitem-tag">
+		<block wx:for="{{tags}}" for:key="*index">
+			<text class="tag tag-{{index}}">{{item}}</text>
+		</block>
+	</view>
+</template>
 
+<!-- 
+<template name="tpl-star">
+	
+</template> -->
 

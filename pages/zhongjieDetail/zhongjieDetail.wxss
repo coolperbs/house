@@ -1,3 +1,6 @@
+
+@import '../../widgets/list/list.wxss'
+
 .page-zhongjieDetail{
 	
 }
@@ -40,7 +43,7 @@
 	height:140rpx;
 }
 .numbers .num-detail{
-	width:250rpx;
+	width:375rpx;
 	display:flex;
 	flex-direction:column;
 	justify-content:center;
@@ -49,6 +52,7 @@
 .numbers .num-detail .desc{
 	font-size:12px;
 	color:#b5b5b5;
+	margin-top:10rpx;
 }
 
 
@@ -81,7 +85,16 @@
 	margin-left:16px;
 }
 
-
+.oldhouseList .header{
+	height:100rpx;
+	display:flex;
+	align-items:center;
+	padding-left:20rpx;
+	color:#545454;
+	border-bottom:1px solid #f1f1f1;
+	background-color:white;
+	margin-top:20rpx;
+}
 
 
 .bottom-bar{
@@ -98,8 +111,12 @@
 	display:flex;
 	justify-content:center;
 	align-items:center;
+	border-radius: 0px;
+	font-size:14px;
 }
-
+.bottom-bar .btn:after{
+	content:none;
+}
 .bottom-bar .btn.rrs{
 	background-color:white;
 	color:#a0a0a0;

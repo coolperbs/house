@@ -42,11 +42,16 @@ Page({
         if ( !data.citycode || !data.cityname ) {
             return;
         }
-        wx.setStorageSync( 'city', {
-            name : data.cityname,
-            code : data.citycode
-        } );
-        wx.navigateBack();
+        wx.setStorage({
+            key: 'city', 
+            data:{
+                name : data.cityname,
+                code : data.citycode
+            },
+            complete:function(){
+                wx.navigateBack();
+            }
+        });
     }    
 });
 

@@ -1,0 +1,104 @@
+@import '../../widgets/list/list.wxss'
+
+page { font-size : 26rpx; color : #303030; padding-bottom : 120rpx; }
+
+.link { color : #26ab1c; }
+.strong { font-size : 28rpx; font-weight: bold; color : #e34f1d; display: inline; }
+
+.head { background-color: #fff; }
+.head .pics{ position: relative; height : 460rpx; background-color: #f0f0f0; }
+.head .pics swiper{ width: 100%; height: 100% }
+.head .pics swiper image { width : 100%; height: 100%; }
+.head .pics .num { position: absolute; bottom : 40rpx; left : 50%; font-size : 24rpx; margin-left : -40rpx; text-align: center; line-height: 40rpx; border-radius: 20rpx; width : 80rpx; height : 40rpx; color : #fff; background-color: rgba( 0, 0, 0, 0.3 ); }
+.head .info { position: relative; padding : 30rpx; padding-top : 20rpx; display: flex; align-items: center; }
+.head .info .main { flex-flow: 1; width : 100%; }
+.head .info .title { font-size : 34rpx; font-weight : bold; }
+.head .info .address { font-size : 28rpx; color : #777; margin-top : 12rpx; }
+.head .info .share { height : 100rpx; border : solid 1px #ccc; }
+
+.mod { background-color: #fff; margin-top : 20rpx; position: relative; }
+.mod .title{ font-size : 28rpx; line-height: 80rpx; text-indent: 30rpx; font-size : 28rpx; height: 80rpx; position: relative; border-bottom : solid 1px #fafafa; font-size : ; }
+.mod .title:before { position: absolute; left :0; top : 50%; margin-top: -12rpx; content : ' '; height : 24rpx; width : 6rpx; background-color: #26ab1c; }
+
+.mod .row { display: flex; padding : 0 30rpx; margin-top : 18rpx; }
+.mod .row .cell { flex-grow : 1; display: flex; width: 100%; }
+.mod .row .cell .key { width : 130rpx; color : #777; }
+.mod .info { padding : 30rpx; margin-top : 30rpx; }
+.mod .more { padding : 30rpx;text-align: center; color : #26ab1c; }
+.mod .map { height :  300rpx; width: 100%; }
+
+.comments { background-color: #fff; }
+.comments .comment{ padding-bottom : 30rpx; border-bottom : solid 1px #fafafa; }
+.comments .comment .agent { padding : 30rpx; display: flex; align-items: center; }
+.comments .comment .agent .img { width : 70rpx; height : 70rpx; border-radius: 35rpx; background-color: #f0f0f0; }
+.comments .comment .agent view { margin-left : 10rpx; }
+.comments .comment .agent .comp { color : #777; }
+.comments .feature { margin-top : 30rpx; }
+.comments .feature:first { margin-top : 0; }
+.comments .feature .labels { padding : 0 30rpx; }
+.comments .feature .label { display: inline-block; padding : 4rpx 10rpx; color : #26ab1c; background-color: #efefef; border-radius: 8rpx; }
+.comments .feature .label.less { color : #ccc; }
+.comments .point { padding : 0 30rpx; margin-top : 20rpx; color : #777; }
+.comments .point .strong { color : #303030; display: inline; margin-right : 10rpx; }
+
+.mod .tabs { height : 80rpx; border-bottom: solid 1px #f0f0f0; font-size : 28rpx; display: flex; justify-content: space-around; align-items: center; }
+.mod .tabs .tab { height: 80rpx; padding : 0 10rpx; line-height: 80rpx }
+.mod .tabs .tab.current { color : #26ab1c; border-bottom : solid 6rpx #26ab1c; }
+
+.house-list .house { display: flex; padding : 30rpx; border-bottom : solid 1px #f0f0f0; }
+.house-list .house .pic { background-color: #f0f0f0; height : 150rpx; width : 200rpx; }
+.house-list .house .house-info { flex-flow: 1; width : 470rpx; flex-direction: column; justify-content: space-between; display: flex; position: relative;  margin-left : 20rpx; }
+.house-list .house .house-info .name { font-size : 28rpx; }
+.house-list .house .house-info .sub { color : #777; }
+.house-list .house .house-info .tags { display: flex; align-items: center; }
+.house-list .house .house-info .tag { font-size : 24rpx; color : #999; border-radius: 8rpx; padding : 4rpx 6rpx; background-color: #f0f0f0; margin-left : 10rpx; }
+.house-list .house .house-info .tag:first-child { margin-left :0; }
+.house-list .house .house-info .tag:nth-child(1) { color : #a1d083; background-color: #f2f8ec; }
+.house-list .house .house-info .tag:nth-child(2) { color : #fea841; background-color: #fff3e7; }
+.house-list .house .house-info .tag:nth-child(3) { color : #7ebee9; background-color: #edf5ff; }
+.house-list .house .house-info .price { color : #e34f1d; position: absolute; right : 0rpx; bottom : 60rpx; }
+
+/* 二手房 hack */
+.mod.second { margin-top : 0;  }
+.mod.second .main { display: flex; align-items: center; justify-content: space-around; }
+.mod.second .main .cell { color : #777; display: flex; flex-direction: column; justify-content: center; align-items: center; }
+.mod.second .main .strong { margin-bottom : 10rpx; font-size : 28rpx; font-weight: bold; color : #e34f1d; }
+.mod.second .list { padding-bottom : 30rpx; margin-top : 20rpx; border-top : solid 1px #fafafa; }
+.mod.second .list .key { width : 80rpx; }
+
+.mod .desc { padding : 30rpx; }
+.mod .desc .desc-title { display: flex; align-items: center; color : #73ac34; margin-bottom : 30rpx; }
+.mod .desc .desc-tag {   }
+.mod .desc .desc-info {}
+
+.man { height : 100rpx; width: 100%; background-color: #fff; position: fixed; bottom : 0; left : 0; z-index: 100; display: flex; border-top : solid 1px #f0f0f0; }
+.man .logo{ height: 80rpx; width : 80rpx; margin : 10rpx; border-radius: 50%; background-color: #fafafa; }
+.man .info { width : 220rpx; padding : 10rpx 0; padding-right : 20rpx; display: flex; flex-direction: column; justify-content: space-between; }
+.man .button { height : 100%; flex-grow : 2; color : #fff; background-color: #26ab1c; display: flex; justify-content: center; align-items: center; }
+
+/* 新房信息hack */
+.mod.sell .main { font-size : 28rpx; border-top : solid 1px #fafafa; border-bottom : solid 1px #fafafa; margin : 0 30rpx; padding : 30rpx 0; }
+.mod.sell .main .line { width : 1px; height : 70rpx; background-color: #fafafa; }
+.mod.sell .list { border-top : none; }
+.mod.second.sell .key { width : 140rpx; }
+
+.mod .unit { padding : 30rpx; }
+.mod .unit .scroll { width : 690rpx; display: flex; white-space: nowrap; }
+.mod .unit .u-cell { width : 240rpx; display: inline-block; margin-left : 30rpx; }
+.mod .unit .u-cell:first-child { margin-left : 0; }
+.mod .unit .u-cell .u-logo { border : solid 1px #fafafa; height : 240rpx; width : 240rpx;  }
+.mod .unit .u-cell .u-sub { color : #777; }
+.mod .unit .u-cell .u-name { font-size : 30rpx; }
+.mod .unit .u-cell .u-sub,
+.mod .unit .u-cell .u-name,
+.mod .unit .u-cell .u-status { margin-top : 10rpx; }
+
+
+
+
+
+
+
+
+
+

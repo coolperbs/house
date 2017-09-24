@@ -5,12 +5,13 @@ var handle, CFG, _fn,
 	utils = require( '../../common/utils/utils' ),
 	uuid = require( '../../common/uuid/uuid' ),
 	config = require('../../config'),
+	app = getApp(),
 	env = config.env,
 	url;
 
 var handle ={
 	search:function(param,callback){
-		var url = 'https://housegateway.yimeixinxijishu.com/app/middleman/list';
+		var url = app.config.host+'/app/middleman/list';
 		var param = param||{};
 		ajax.query( {
 			url : url,

@@ -25,8 +25,10 @@ class pageList{
 	pageList_goNextPage(e){
 		this.getData();
 	}
-	pageList_tapItem(){
-
+	pageList_tapItem(e){
+		console.log(111,e);
+		var dataset = e.currentTarget.dataset;
+		this.tapItem(dataset);
 	}
 	reset(){//重置
 		this.currentPage = 0;
